@@ -1,44 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Online IDEs</title>
-    <style>
-        .ide {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 50px;
-        }
-        .ide-item {
-            margin: 20px;
-            text-align: center;
-        }
-        .ide-image {
-            width: 200px;
-            height: 200px;
-        }
-        .ide-title {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-    </style>
-</head>
 <body>
-    <h1>Online IDEs</h1>
-    <div class="ide">
-        <div class="ide-item">
-            <a href="https://replit.com">
-                <img src="replit_logo.png" alt="Replit" class="ide-image">
-                <h3 class="ide-title">Replit</h3>
-            </a>
-        </div>
-        <div class="ide-item">
-            <a href="https://ideone.com">
-                <img src="ideone_logo.png" alt="IDEOne" class="ide-image">
-                <h3 class="ide-title">IDEOne</h3>
-            </a>
-        </div>
-        <!-- Add more IDEs here -->
-    </div>
-</body>
-</html>
+    <textarea id="output" rows="10" cols="50" readonly></textarea>
+<input type="text" id="input" size="50">
+<button onclick="executeCode()">Execute</button>
+ </body>
+ </html>
+<script>
+  function executeCode() {
+    var input = document.getElementById("input").value;
+    var output = document.getElementById("output");
+
+    try {
+      eval(input);
+    } catch (e) {
+      output.value += "Error: " + e + "\n";
+    }
+  }
+</script>
